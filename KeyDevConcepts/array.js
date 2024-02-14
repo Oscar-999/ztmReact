@@ -26,11 +26,20 @@
 
 //! Find
 // returns on the first element found
-const myArray = [1,3,5,7,9]
+// const myArray = [1,3,5,7,9]
 
-myArray.find(el => el === 5) //5
+// myArray.find(el => el === 5) //5
 
-myArray.find(el => el > 4) //5
+// myArray.find(el => el > 4) //5
 
-const peopleArray = [{id:1}, {id:4}, {id:7}]
-peopleArray.find(person => person.id === 4) // {id: 4}
+// const peopleArray = [{id:1}, {id:4}, {id:7}]
+// peopleArray.find(person => person.id === 4) // {id: 4}
+
+
+//! Reduce
+// want to end up with one value at the end
+
+const array = [1,2,3,4,5]
+
+array.reduce((accumulator, currentElement) => accumulator + currentElement, 0) //15
+array.reduce((accumulator, currentElement) => accumulator + currentElement, 10) //25
