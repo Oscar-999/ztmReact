@@ -22,3 +22,15 @@
 
 //! Primitive Types
 //  Strings,booleans,null,undef,number,symbol
+
+
+//! Find
+// returns on the first element found
+const myArray = [1,3,5,7,9]
+
+myArray.find(el => el === 5) //5
+
+myArray.find(el => el > 4) //5
+
+const peopleArray = [{id:1}, {id:4}, {id:7}]
+peopleArray.find(person => person.id === 4) // {id: 4}
