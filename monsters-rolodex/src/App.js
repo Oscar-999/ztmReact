@@ -4,6 +4,14 @@ import SearchBox from "./components/search-box/searchBoxComponent";
 import "./App.css";
 
 const App = () => {
+
+  const onSearchChange = (event) => {
+    const searchField = event.target.value.toLocaleLowerCase();
+    this.setState(() => {
+      return {searchField}
+    })
+  }
+  
   return (
     <div className="App">
       <h1 className="app-title">Monsters Rolodex</h1>
