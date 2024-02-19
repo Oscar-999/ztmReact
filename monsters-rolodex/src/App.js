@@ -1,17 +1,16 @@
-import { Component } from "react";
 import CardList from "./components/card-list/cardListComponent";
 import SearchBox from "./components/search-box/searchBoxComponent";
 import "./App.css";
+import { useState } from "react";
 
 const App = () => {
-
+  const [searchField, setSearchField] = useState("");
+  console.log(searchField)
   const onSearchChange = (event) => {
-    const searchField = event.target.value.toLocaleLowerCase();
-    this.setState(() => {
-      return {searchField}
-    })
-  }
-  
+    const searchFieldString = event.target.value.toLocaleLowerCase();
+    setSearchField(searchFieldString);
+  };
+
   return (
     <div className="App">
       <h1 className="app-title">Monsters Rolodex</h1>
@@ -20,7 +19,7 @@ const App = () => {
         placeholder="search monsters"
         className="search-box"
       />
-      <CardList monsters={filteredMonsters} />
+      {/* <CardList monsters={filteredMonsters} /> */}
     </div>
   );
 };
