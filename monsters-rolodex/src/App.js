@@ -2,10 +2,12 @@ import CardList from "./components/card-list/cardListComponent";
 import SearchBox from "./components/search-box/searchBoxComponent";
 import "./App.css";
 import { useState, useEffect } from "react";
+import { toBeInTheDOM } from "@testing-library/jest-dom/dist/matchers";
 
 const App = () => {
   const [searchField, setSearchField] = useState("");
   const [monsters, setMonsters] = useState([]);
+  const [title,setTitle] = useState('')
   const [filteredMonsters, setFilteredMonsters] = useState(monsters);
 
   console.log("render");
@@ -28,13 +30,23 @@ const App = () => {
     setSearchField(searchFieldString);
   };
 
+  const onTitleChange = (event) => {
+    const searchFieldString = event.target.value.toLocaleLowerCase();
+    setSearchField(searchFieldString)
+  }
   return (
     <div className="App">
-      <h1 className="app-title">Monsters Rolodex</h1>
+      <h1 className="app-title">{title}</h1>
       <SearchBox
         onChangeHandler={onSearchChange}
         placeholder="search monsters"
         className="search-box"
+      />
+      <br/>
+      <SearchBox
+        onChangeHandler={onTitleChange}
+        placeholder="set title"
+        className="title-search-box"
       />
       <CardList monsters={filteredMonsters} />
     </div>
